@@ -53,10 +53,10 @@
 2. 将topn之外的Category全部命名为others
     - 获取非topn的行索引
     - 根据行索引找到对应类别进行分重命名
-        ```python
-        other_cate_index = data_df_new[ ~data_df_new['prime_genre'].isin(top_n_cate_index) ].index
-        data_new_df.loc[ other_cate_index, 'prime_genre' ] = 'others' #注意是方括号[]
-        ```
+    ```python
+    other_cate_index = data_df_new[ ~data_df_new['prime_genre'].isin(top_n_cate_index) ].index
+    data_new_df.loc[ other_cate_index, 'prime_genre' ] = 'others' #注意是方括号[]
+    ```
 3. 添加一列用来标记是否收费, 画出sns.countplot
     ```python
     data_df_new['type'] = np.where(data_df_new['price']==0, 'free', 'paid')
@@ -71,13 +71,13 @@
     ```
 5. 分组统计，转换为数据透视表
     - 分组统计
-        ```python
-        groupby_df = data_df_new.groupby( ['prime_genre', 'type'] ).size().to_frame()
-        # size()用于计数，to_frame()转化为Dataframe
-        grouby_df.columns = ['count'] # 设置列名为count
-        ```
+    ```python
+    groupby_df = data_df_new.groupby( ['prime_genre', 'type'] ).size().to_frame()
+    # size()用于计数，to_frame()转化为Dataframe
+    grouby_df.columns = ['count'] # 设置列名为count
+    ```
     - 转换为数据透视表
-        ```python
-        pivots = groupby_df.pivot_table(index=['prime-genre'], columns=['type'], values=['count'])
-        # values 使用上面count列的值
-        ```
+    ```python
+    pivots = groupby_df.pivot_table(index=['prime-genre'], columns=['type'], values=['count'])
+    # values 使用上面count列的值
+    ```
