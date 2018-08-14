@@ -91,3 +91,16 @@
     ```python
     free_paid_count[['free_perc','paid_perc']].plot(kind='bar', stacked=True, figsize=(12,8))
     ```
+# 4. Price VS Rating
+
+1. 收费与否与评分关系，使用已经分类的data_df_new（top10 + others）
+    - 散点图
+    ```python
+    plt.scatter(x=data_df_new['prime_genre'], y=data_df_new['user_rating'], s=10*data_df_new['price'])
+    ```
+    - 小提琴图
+    ```python
+    sns.violinplot(data=data_df_new, x='prime_genre', y='user_rating', hue='type', split=True)
+    ```
+    
+    
