@@ -80,3 +80,13 @@
     pivots = groupby_df.pivot_table(index=['prime-genre'], columns=['type'], values=['count'])
     # values 使用上面count列的值
     ```
+6. 数据透视表添加free，paid百分比，画出堆叠柱状图
+    - 数据透视表添加columns
+    ```python
+    free_paid_count['free_perc'] = free_paid_count['free'] / (free_paid_count['free']+free_paid_count['paid'])
+    free_paid_count['paid_perc'] = free_paid_count['paid'] / (free_paid_count['free']+free_paid_count['paid'])
+    ```
+    - 堆叠柱状图
+    ```python
+    free_paid_count[['free_perc','paid_perc']].plot(kind='bar', stacked=True, figsize=(12,8))
+    ```
