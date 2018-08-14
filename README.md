@@ -17,7 +17,8 @@
 5. 使用分位数查看数值分布
     - ```data_df.describe()```
     - ```data_df['price'].quantile([0,0.25,0.5,0.75,1]) # 默认只显示0.5中位数```
-6. 如果有2列数值型数据查看分布，可以使用scatter。此处显然不合适。
+6. 多变量分布可以使用scatter。此处单列数据显然不合适。
+     - ```plt.scatter(normal_df['prime_genre'], normal_df['price'])```
      - ```plt.scatter(data_df['prime_genre'], data_df['user_rating'], s=data_df['price']**2) # s= 气泡大小```
 
 
