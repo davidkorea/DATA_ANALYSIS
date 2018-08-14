@@ -101,6 +101,7 @@
     - 小提琴图
     ```python
     sns.violinplot(data=data_df_new, x='prime_genre', y='user_rating', hue='type', split=True)
+    # hue 按照‘type’分开画图， split=True，不同type画在同一个小提琴，但左右分开
     ```
     
     
