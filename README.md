@@ -15,5 +15,8 @@
 4. 若各项取值重复性高，如app一般定价为0.99，1.99，2.99，9.99等，可使用
     - ```data_df['price'].value_counts().plot(kind='bar')```
     - ```sns.countplot(data_df['price'])```
-5. 如果有2列数值型数据查看分布，可以使用scatter。此处显然不合适。
+5. 使用分位数查看数值分布
+    - ```data_df.describe()```
+    - ```data_df['price'].quantile([0,0.25,0.5,0.75,1]) # 默认只显示0.5中位数```
+6. 如果有2列数值型数据查看分布，可以使用scatter。此处显然不合适。
      - ```plt.scatter(data_df['prime_genre'], data_df['user_rating'], s=data_df['price']**2) # s= 气泡大小```
