@@ -1,7 +1,6 @@
 # DATA_ANALYSIS
 
 # 1. Price distribution of paid apps
-**Thinking**
 
 1. 每一分类下的每一种app对应一个价格，查看数值型（price）数据分布。分布意味着落在某一价格区间的数量多少，需要划分合理数值区间，查看落在区间中的个数。
     - x轴app名称，y轴价格，很明显不可取
@@ -23,7 +22,7 @@
 
 
 # 2. Category VS Price
-**Thinking**
+
 1. How many catrgoris
 2. Each cate vs price distribution ?
     - boxplot
