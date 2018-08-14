@@ -20,3 +20,28 @@
     - ```data_df['price'].quantile([0,0.25,0.5,0.75,1]) # 默认只显示0.5中位数```
 6. 如果有2列数值型数据查看分布，可以使用scatter。此处显然不合适。
      - ```plt.scatter(data_df['prime_genre'], data_df['user_rating'], s=data_df['price']**2) # s= 气泡大小```
+
+
+# 2. Category VS Price
+**Thinking**
+1. How many catrgoris
+2. Each cate vs price distribution ?
+    - boxplot
+3. 挑选top_N的类别进行分析
+    - 获得top10的分类名称
+    
+    ```top_n_cate_index = data_df['cate'].value_counts()[:N].index.tolist()```
+    - 根据上面的分类名称，选出相应的rows，返回Dataframe
+    
+    ```top_n_cate_df = data_df[data_df['cate'].isin(top_n_cate_index)]```
+    - 整理筛选后的df，添加索引，删除原来索引号
+    
+    ```python
+    top_n_cate_df = top_n_cate_df.set_index(np.array([i for i in range(top_n_cate_df.shape[0])]))
+    top_n_cate_df.drop('Unnamed: 0', axis=1, inplace=True)
+    ```
+    - 根据筛选后的top_n df，画出各个Category的price分布
+    
+    ```sns.boxplot(x=top_n_cate_df['cate'], y=top_n_cate_df['price'])```
+    
+    **并不是只有一列全部为数值的项可以画出分布boxplot，在一个Dataframe中，每一row中包含有Category，price的数据也可以画出boxplot**
