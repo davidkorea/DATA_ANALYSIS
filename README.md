@@ -66,9 +66,9 @@
 4. 数据透视表
     ```python
     free_paid_count = data_df_new.pivot_table(index=['prime_genre'], 
-    columns=['type'], 
-    values=['id'], 
-    aggfunc='count')
+                                                columns=['type'], 
+                                                values=['id'], 
+                                                aggfunc='count')
     # values 可以选择任意一列，aggfunc='count' 计数前面一列的个数
     free_paid_count.columns = free_paid_count.columns.droplevel()
     # 删除掉上面一行count的列名‘id’
