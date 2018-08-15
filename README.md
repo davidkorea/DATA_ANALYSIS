@@ -28,10 +28,10 @@
 2. Each cate vs price distribution ?
     - boxplot
 3. 挑选top_N的类别进行分析
-    - 获得top10的分类名称
+    - 获得top10的分类名称，value_counts.index是此列数据的类别名称，非索引行号
     
     ```top_n_cate_index = data_df['cate'].value_counts()[:N].index.tolist()```
-    - 根据上面的分类名称，选出相应的rows，返回Dataframe
+    - 根据上面的分类名称，匹配找到data_df['cate']列的内容，选出相应的rows，返回新Dataframe
     
     ```top_n_cate_df = data_df[data_df['cate'].isin(top_n_cate_index)]```
     - 整理筛选后的df，添加索引，删除原来索引号
