@@ -127,4 +127,11 @@
     - ```pd.scatter_matrix(normal_df[['size_mb','price']],figsize=(12,8),range_padding=0.1)```
 5. 双变量联合分布sns.jointplot，散点图与直方图同时展现在一幅图上
     ```sns.jointplot(x=normal_df['size_mb'], y=normal_df['price'])```
+6. 根据相关系数画出heatmap
+    ```python
+    corr_df = normal_df[['size_mb','price']].corr()
+    sns.heatmap(corr, annot=True, cmap='Purples')
+    # annot 显示数值， cmap 紫色系
+    ```
+    
     **相较于sns.pairplot, pd.scatter_matrix的四张图， sns.jointplot更直观更简洁， 区间划分更细腻，细节信息更丰富**
