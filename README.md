@@ -133,5 +133,5 @@
     sns.heatmap(corr, annot=True, cmap='Purples')
     # annot 显示数值， cmap 紫色系
     ```
-    
+    > 4,5,6 more details and instance on: [8_分析神奇宝贝的变量关系数据](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/4_pokemon_properties/8_%E5%88%86%E6%9E%90%E7%A5%9E%E5%A5%87%E5%AE%9D%E8%B4%9D%E7%9A%84%E5%8F%98%E9%87%8F%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE.ipynb)
     **相较于sns.pairplot, pd.scatter_matrix的四张图， sns.jointplot更直观更简洁， 区间划分更细腻，细节信息更丰富**
