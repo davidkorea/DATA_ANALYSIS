@@ -106,6 +106,7 @@
     ```python
     sns.violinplot(data=data_df_new, x='prime_genre', y='user_rating', hue='type', split=True)
     # hue 按照‘type’分开画图， split=True，不同type画在同一个小提琴，但左右分开
+    # split：将split设置为true则绘制分拆的violinplot以比较被hue拆分后的两个量
     ```
     
     
