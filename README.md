@@ -57,6 +57,7 @@
     other_cate_index = data_df_new[ ~data_df_new['prime_genre'].isin(top_n_cate_index) ].index
     data_new_df.loc[ other_cate_index, 'prime_genre' ] = 'others' #注意是方括号[]
     ```
+    > Reference: [iloc VS loc in pandas]()
 3. 添加一列用来标记是否收费, 画出sns.countplot
     ```python
     data_df_new['type'] = np.where(data_df_new['price']==0, 'free', 'paid')
