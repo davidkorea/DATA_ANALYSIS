@@ -109,4 +109,12 @@
     # split：将split设置为true则绘制分拆的violinplot以比较被hue拆分后的两个量
     ```
     
-    
+# 5. Price VS Size
+
+1. add a new column named 'size_mb'
+    ```normal_df['size_mb'] = normal_df['size_bytes'] / 1000000```
+2. Distribution of size_mb, plot as what #1 does
+    - ```sns.boxplot(y=normal_df['size_mb'])```
+    - ```normal_df['size_mb'].describe()```
+    - ```sns.distplot(normal_df['size_mb'], bins=10, kde=False, rug=True)```
+    - ```sns.scatterplot(x=normal_df['size_mb'], y=normal_df['price'])```
