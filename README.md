@@ -123,3 +123,8 @@
     sns.pairplot(normal_df[['size_mb','price']], height=6)
     # 自动划分数据区间，无需指定bins， 自动生成散点图和分布直方图
     ```
+4. pandas自带scatter_matrix实现sns.pairplot效果
+    - ```pd.scatter_matrix(normal_df[['size_mb','price']],figsize=(12,8),range_padding=0.1)```
+5. 双变量联合分布sns.jointplot，散点图与直方图同时展现在一幅图上
+    ```sns.jointplot(x=normal_df['size_mb'], y=normal_df['price'])```
+    **相较于sns.pairplot, pd.scatter_matrix的四张图， sns.jointplot更直观更简洁， 区间划分更细腻，细节信息更丰富**
