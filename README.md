@@ -57,7 +57,7 @@
     other_cate_index = data_df_new[ ~data_df_new['prime_genre'].isin(top_n_cate_index) ].index
     data_new_df.loc[ other_cate_index, 'prime_genre' ] = 'others' #注意是方括号[]
     ```
-    > Reference: [iloc VS loc in pandas]()
+    > Reference: [iloc VS loc in pandas](https://github.com/davidkorea/DATA_ANALYSIS/issues/1)
 3. 添加一列用来标记是否收费, 画出sns.countplot
     ```python
     data_df_new['type'] = np.where(data_df_new['price']==0, 'free', 'paid')
@@ -65,7 +65,10 @@
     ```
 4. 数据透视表
     ```python
-    free_paid_count = data_df_new.pivot_table(index=['prime_genre'], columns=['type'], values=['id'], aggfunc='count')
+    free_paid_count = data_df_new.pivot_table(index=['prime_genre'], 
+    columns=['type'], 
+    values=['id'], 
+    aggfunc='count')
     # values 可以选择任意一列，aggfunc='count' 计数前面一列的个数
     free_paid_count.columns = free_paid_count.columns.droplevel()
     # 删除掉上面一行count的列名‘id’
