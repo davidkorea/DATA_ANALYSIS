@@ -119,4 +119,7 @@
     - ```sns.distplot(normal_df['size_mb'], bins=10, kde=False, rug=True)```
     - ```sns.scatterplot(x=normal_df['size_mb'], y=normal_df['price'])```
 3. Combine ```sns.distplot``` and ```sns.scatterplot``` with one function - ```sns.pairplot``` 
-    ```sns.pairplot(normal_df[['size_mb','price']], height=6)```
+    ```python
+    sns.pairplot(normal_df[['size_mb','price']], height=6)
+    # 自动划分数据区间，无需指定bins， 自动生成散点图和分布直方图
+    ```
