@@ -111,10 +111,12 @@
     
 # 5. Price VS Size
 
-1. add a new column named 'size_mb'
+1. Add a new column named 'size_mb'
     ```normal_df['size_mb'] = normal_df['size_bytes'] / 1000000```
 2. Distribution of size_mb, plot as what #1 does
     - ```sns.boxplot(y=normal_df['size_mb'])```
     - ```normal_df['size_mb'].describe()```
     - ```sns.distplot(normal_df['size_mb'], bins=10, kde=False, rug=True)```
     - ```sns.scatterplot(x=normal_df['size_mb'], y=normal_df['price'])```
+3. Combine ```sns.distplot``` and ```sns.scatterplot``` with one function - ```sns.pairplot``` 
+    ```sns.pairplot(normal_df[['size_mb','price']], height=6)```
