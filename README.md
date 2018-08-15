@@ -126,7 +126,7 @@
 4. pandas自带scatter_matrix实现sns.pairplot效果
     - ```pd.scatter_matrix(normal_df[['size_mb','price']],figsize=(12,8),range_padding=0.1)```
 5. 双变量联合分布sns.jointplot，散点图与直方图同时展现在一幅图上
-    ```sns.jointplot(x=normal_df['size_mb'], y=normal_df['price'])```
+    - ```sns.jointplot(x=normal_df['size_mb'], y=normal_df['price'])```
 6. 根据相关系数画出heatmap
     ```python
     corr_df = normal_df[['size_mb','price']].corr()
