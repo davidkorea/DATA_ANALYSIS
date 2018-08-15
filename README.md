@@ -52,7 +52,7 @@
     ```data_df_new = data_df.copy()```
 2. 将topn之外的Category全部命名为others
     - 获取非topn的行索引
-    - 根据行索引找到对应类别进行分重命名
+    - 根据行索引找到对应类别进行重命名
     ```python
     other_cate_index = data_df_new[ ~data_df_new['prime_genre'].isin(top_n_cate_index) ].index
     data_new_df.loc[ other_cate_index, 'prime_genre' ] = 'others' #注意是方括号[]
