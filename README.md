@@ -112,7 +112,7 @@
 # 5. Price VS Size
 
 1. Add a new column named 'size_mb'
-    ```normal_df['size_mb'] = normal_df['size_bytes'] / 1000000```
+    - ```normal_df['size_mb'] = normal_df['size_bytes'] / 1000000```
 2. Distribution of size_mb, plot as what #1 does
     - ```sns.boxplot(y=normal_df['size_mb'])```
     - ```normal_df['size_mb'].describe()```
