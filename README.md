@@ -2,3 +2,4 @@
 
 1. [Mobile_Apps_Analysis_Kaggle](https://github.com/davidkorea/DATA_ANALYSIS/tree/master/8_Mobile_Apps_Analysis_Kaggle)
 2. [Google Job Skills]()
+  - .str.contains('')
