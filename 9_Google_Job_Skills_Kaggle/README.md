@@ -27,7 +27,7 @@
   data_df['country'].value_counts()[:10].plot(kind='bar', rot=45, figsize=(12,8))
   ```    
 
-  2. **Replace in one df column** [Issue](https://github.com/davidkorea/DATA_ANALYSIS/issues/2)
+  2. **Replace in one df column** [_Issue_](https://github.com/davidkorea/DATA_ANALYSIS/issues/2)
 
   - Only full replace / completely replace
     - ```new_df['country'].replace('Taiwan', 'China', inplace=True) # replace space first then it works```
