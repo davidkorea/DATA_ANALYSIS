@@ -15,8 +15,9 @@
 # 1. Country of recuiment
 
   1. get country from location column
-    - vector operations    
-    - visualization
+
+  - vector operations    
+  - visualization
   ```python
   data_df['country'] = data_df['location'].apply(lambda x: x.split(',')[-1])
   data_df['country'] = data_df['country'].apply(lambda y: y.replace(' ', ''))
