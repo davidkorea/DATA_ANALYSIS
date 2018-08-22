@@ -54,11 +54,17 @@
   sns.countplot(data_df['min_year_exp']) # auto axis, no sort
   sns.distplot(data_df['min_year_exp'].astype('int'), bins=15, kde=False) # auto axis, sorted 【O】
   ```
- > - ```sns.countplot()``` is better than ```value_counts().plot()```, beacuse sns shows axis without setting. 
- > - but sns doesn't sort data and will run as the order first in the column
- > - ```sns.distplot()``` will fixed the above problem, axis go in sorted list
+2. Compare 3 count plot
+  - ```sns.countplot()``` is better than ```value_counts().plot()```, beacuse sns shows axis without setting. 
+  - but sns doesn't sort data and will run as the order first in the column
+  - ```sns.distplot()``` will fixed the above problem, axis go in sorted list
 
 
+# 3. Required minimum degree
+
+1. set a list of degree
+2. init d dict for count
+3. iterate the df column to update the count dict
 
 
 
