@@ -1,7 +1,7 @@
 # Google Job Skills Kaggle
 
 - tasks
-  - country of recruiment
+  - country of recruitment
   - work experience of year 
   - required minimum degree 
   - required programming lamguage
@@ -12,8 +12,8 @@
   - ```long_text = ' '.join(content_list)```
   - ```Wordcloud().generate(long_text)```
 
-# 1. Country of recuiment
-
+# 1. Country of recruitment
+## 1.1 Code
 1. get country from location column
 
   - vector operations    
@@ -26,8 +26,8 @@
   # but when you put it into a apply(lambda x:) it works!!!
   data_df['country'].value_counts()[:10].plot(kind='bar', rot=45, figsize=(12,8))
   ```    
-
-2. **Replace in one df column** [_Issue_](https://github.com/davidkorea/DATA_ANALYSIS/issues/2)
+## 1.2 Insights
+1. Replace in one df column [Issue](https://github.com/davidkorea/DATA_ANALYSIS/issues/2)
 
   - Only full replace / completely replace, remove irrelevant elements first and leave the char we want to replace only
     - ```new_df['country'].replace('Taiwan', 'China', inplace=True)```
@@ -40,6 +40,7 @@
 
 # 2. Years of work experience
 
+## 2.1 Code
 1. get minimum year 
   
   - get numbers through regex in a text
@@ -55,7 +56,8 @@
   sns.distplot(data_df['min_year_exp'].astype('int'), bins=15, kde=False) # auto axis, sorted 【O】
   sns.boxplot(data=new_df['min_year_exp'].astype('int'))
   ```
-2. Compare 3 count plot
+## 2.2 Insights
+1. Compare 3 count plot
   - ```sns.countplot()``` is better than ```value_counts().plot()```, beacuse sns shows axis without setting. 
   - but sns doesn't sort data and will run as the order first in the column
   - ```sns.distplot()``` will fixed the above problem, axis go in sorted list
@@ -66,7 +68,7 @@
 Get a specific word this a text, count the frequency by a dict, transform the dict to a sorted list and make a Dataframe for visualization.
 
 > get error code ?
-
+## 3.1 Code
 1. Get degree requirement from minimum qualifications
   - set a list of degree
   - init d dict for count
@@ -92,7 +94,8 @@ Get a specific word this a text, count the frequency by a dict, transform the di
   degree_df.set_index('degree', inplace=True) # if no inplace, it doesn't work
   degree_df.plot(kind='bar', rot=0)
   ```
-2. dict -> list -> df
+## 3.2 Insights
+1. dict -> list -> df
   - dict can't be tranformed to df
   ```python
   list = [ (i[0], i[1]) for i in dict.items()]
