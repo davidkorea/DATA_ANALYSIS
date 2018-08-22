@@ -35,8 +35,8 @@
     - ```data_df['country'].apply(lambda x:'China' if x = 'Taiwan' else x) #apply(lambda x:) must be a full if-else pattern```
 
   - Replace part of elements in df column
-    - ```data_df.loc[ data_df['country'].str.contains('Taiwan'), 'country' ] = 'China'```
-    - ```data_df['country'] = data_df['country'].apply(lambda x: x.replace('Taiwan', 'China'))```
+    - ```data_df.loc[ data_df['country'].str.contains('Taiwan'), 'country' ] = 'China' # replace all contents if the cell contains the char we set```
+    - ```data_df['country'] = data_df['country'].apply(lambda x: x.replace('Taiwan', 'China')) # only replace the chars we set and leave the others as what they are```
 
 
 
