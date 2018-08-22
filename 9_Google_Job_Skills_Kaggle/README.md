@@ -135,5 +135,19 @@ Generate the word cloud of [responsibilities, minimum qualifications, preferred 
   - make a long_text, a very long string by the list above
   - generate wordcloud
   ```python
+  wordcould_types = ['Responsibilities', 'Minimum Qualifications', 'Preferred Qualifications']
   
+  def plot_wordcloud(title, wordcould_types):
+      for wordcould_type in wordcould_types:
+          filtered_list = data_df[data_df['Title'].str.contains(title)][wordcould_type].tolist()
+          long_text = ' '.join(filtered_list)
+          word_cloud = Wordcloud().generate(long_text)
+          plt.imshow(word_cloud)
+          plt.title('{} - {}'.format(title, wordcould_type))
+          plt.axis('off')
+          plt.show()
+  
+  plot_wordcloud('Analyst', wordcould_types)
+  plot_wordcloud('Solution', wordcould_types)
+  plot_wordcloud('Sales', wordcould_types)
   ```
