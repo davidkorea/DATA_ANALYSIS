@@ -105,7 +105,22 @@ Get a specific word this a text, count the frequency by a dict, transform the di
   ```python
   sorted_dcit_list = sorted( dict.items(), key=lambda x : x[1], reverse=True)
   ```
-**we need to transform a dict to a list anyway for make a df, so just sort a dict. and it will return a list**
+**we need to transform a dict to a list anyway for make a df, so just sort a dict and it will return a list**
 
+# 4. Required programming language
 
+Same as required minimum degree
+
+```python
+language_list = language_list = ['Python', 'Java ', 'C#', 'PHP', 'Javascript', 'Ruby', 'Perl', 'SQL', 'Go ']
+language_dict = dict( (x,0) for x in language_list )
+for language in language_list:
+    count = data_df['Minimum Qualifications'].str.contains(language).sum()
+    language_dict[language] = count
+
+language_requirement = sorted(language_dict.items(), key=x:x[1], reverse=True)
+language_df = pd.dateframe(language_requirement, columns=['language', 'count'])
+
+sns.barplot(x=language_df['language'] , y=language_df['count'])
+```
 
