@@ -92,20 +92,17 @@ Get a specific word this a text, count the frequency by a dict, transform the di
   degree_df.set_index('degree', inplace=True) # if no inplace, it doesn't work
   degree_df.plot(kind='bar', rot=0)
   ```
+2. dict -> list -> df
+  - dict can't be tranformed to df
+  ```python
+  list = [ (i[0], i[1]) for i in dict.items()]
+  list = [ (key, value) for key,value in dict.items() ]
+  ```
+  - sort dict and to list**
+  ```python
+  sorted_dcit_list = sorted( dict.items(), key=lambda x : x[1], reverse=True)
+  ```
+**we need to transform a dict to a list anyway for make a df, so just sort a dict. and it will return a list**
 
 
 
-
-**2. dict can't tranform to df**
-
-dict -> list -> df
-
-```python
-list = [ (i[0], i[1]) for i in dict.items()]
-```
-
-**3. sort dict and to list**
-
-```python
-sorted_dcit_list = sorted( dict.items(), key=lambda item : item[1])
-```
