@@ -52,11 +52,11 @@
   
   data_df['min_year_exp'].value_counts()[:10].plot(kind='bar') # no axis, sorted
   sns.countplot(data_df['min_year_exp']) # auto axis, no sort
-  sns.distplot(data_df['min_year_exp'].astype('int'), bins=15, kde=False) # auto axis, sorted
+  sns.distplot(data_df['min_year_exp'].astype('int'), bins=15, kde=False) # auto axis, sorted 【O】
   ```
  > - ```sns.countplot()``` is better than ```value_counts().plot()```, beacuse sns shows axis without setting. 
  > - but sns doesn't sort data and will run as the order first in the column
- > - sns.distplot will fixed the above problem, axis go in sorted list
+ > - ```sns.distplot()``` will fixed the above problem, axis go in sorted list
 
 
 
