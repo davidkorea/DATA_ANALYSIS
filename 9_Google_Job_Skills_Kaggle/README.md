@@ -1,5 +1,8 @@
 # Google Job Skills Kaggle
 
+- work experience of year 
+- required minimum degree 
+- each position's responsibilities, minimum qualifications, preferred qualifications
 
 **1. Replace in one column**
 
