@@ -61,7 +61,12 @@
   - ```sns.countplot()``` is better than ```value_counts().plot()```, beacuse sns shows axis without setting. 
   - but sns doesn't sort data and will run as the order first in the column
   - ```sns.distplot()``` will fixed the above problem, axis go in sorted list
-
+2. Regex - regulation expression
+  - ```re.findall('([0-9]+) year', x)```, find many numbers from[0,9] in front of 'year', only inside( ) will be returned
+  - ```re.findall('[0-9]\d{0,2}')```, could have 0~2 more numbers behind the first number
+  - ```re.findall('[0-9]\d{2}')```, could only have 2 more numbers behind the first number
+  - ^ : begin
+  - $ : end
 
 # 3. Required minimum degree
 
