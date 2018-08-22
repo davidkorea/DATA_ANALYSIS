@@ -41,8 +41,22 @@
 # 2. Years of work experience
 
 1. get minimum year 
-
-
+  
+  - get numbers through regex in a text
+  - clean numbers
+  - visualization
+  ```python
+  data_df['min_year_exp'] = data_df['minimum_qulifications'].apply(lambda x: re.findall('([0-9]+) year', x))
+  data_df['min_year_exp'] = data_df['min_year_exp'].apply(lambda y: [0] if len(y)==0 else y)
+  data_df['min_year_exp'] = data_df['min_year_exp'].apply(lambda z: max(z))
+  
+  data_df['min_year_exp'].value_counts()[:10].plot(kind='bar') # no axis, sorted
+  sns.countplot(data_df['min_year_exp']) # auto axis, no sort
+  sns.distplot(data_df['min_year_exp'].astype('int'), bins=15, kde=False) # auto axis, sorted
+  ```
+ > - ```sns.countplot()``` is better than ```value_counts().plot()```, beacuse sns shows axis without setting. 
+ > - but sns doesn't sort data and will run as the order first in the column
+ > - sns.distplot will fixed the above problem, axis go in sorted list
 
 
 
