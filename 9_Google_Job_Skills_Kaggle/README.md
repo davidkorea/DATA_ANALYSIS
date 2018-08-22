@@ -22,6 +22,7 @@
   data_df['country'] = data_df['location'].apply(lambda x: x.split(',')[-1])
   data_df['country'] = data_df['country'].apply(lambda y: y.replace(' ', ''))
   # data_df['country'] = data_df['country'].replace(' ', '') # doesn't work
+  # because this is not a full replace, space and string are mixed up together
   data_df['country'].value_counts()[:10].plot(kind='bar', rot=45, figsize=(12,8))
   ```    
 
@@ -32,7 +33,8 @@
     - ```data_df.loc[ data_df['country']=='Taiwan', 'country' ] = 'China' # replace space first then it works```      
     - ```data_df['country'].apply(lambda x:'China' if x = 'Taiwan' else x) #apply(lambda x:) must be a full if-else pattern```
 
-
+  - Replace part of elements in df column
+    - ```data_df.loc[ data_df['country'].str.contains('Taiwan'), 'country' ] = 'China'```
 
 
 
