@@ -29,14 +29,14 @@
 
   2. **Replace in one df column** [_Issue_](https://github.com/davidkorea/DATA_ANALYSIS/issues/2)
 
-  - Only full replace / completely replace
-    - ```new_df['country'].replace('Taiwan', 'China', inplace=True) # replace space first then it works```
-    - ```data_df.loc[ data_df['country']=='Taiwan', 'country' ] = 'China' # replace space first then it works```      
-    - ```data_df['country'].apply(lambda x:'China' if x = 'Taiwan' else x) #apply(lambda x:) must be a full if-else pattern```
+  - Only full replace / completely replace, remove irrelevant elements first and leave the char we want to replace only
+    - ```new_df['country'].replace('Taiwan', 'China', inplace=True)```
+    - ```data_df.loc[ data_df['country']=='Taiwan', 'country' ] = 'China'```      
+    - ```data_df['country'].apply(lambda x:'China' if x = 'Taiwan' else x)```, apply(lambda x:) must be a full if-else pattern.
 
   - Replace part of elements in df column
-    - ```data_df.loc[ data_df['country'].str.contains('Taiwan'), 'country' ] = 'China' # replace all contents if the cell contains the char we set```
-    - ```data_df['country'] = data_df['country'].apply(lambda x: x.replace('Taiwan', 'China')) # only replace the chars we set and leave the others as what they are```
+    - ```data_df.loc[ data_df['country'].str.contains('Taiwan'), 'country' ] = 'China'```, replace all contents if the cell contains the char we set.
+    - ```data_df['country'] = data_df['country'].apply(lambda x: x.replace('Taiwan', 'China'))```, only replace the chars we set and leave the others as what they are.
 
 
 
