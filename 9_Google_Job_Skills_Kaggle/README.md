@@ -53,6 +53,7 @@
   data_df['min_year_exp'].value_counts()[:10].plot(kind='bar') # no axis, sorted
   sns.countplot(data_df['min_year_exp']) # auto axis, no sort
   sns.distplot(data_df['min_year_exp'].astype('int'), bins=15, kde=False) # auto axis, sorted 【O】
+  sns.boxplot(data=new_df['min_year_exp'].astype('int'))
   ```
 2. Compare 3 count plot
   - ```sns.countplot()``` is better than ```value_counts().plot()```, beacuse sns shows axis without setting. 
@@ -62,10 +63,16 @@
 
 # 3. Required minimum degree
 
-1. set a list of degree
-2. init d dict for count
-3. iterate the df column to update the count dict
+Get a specific word this a text, count the frequency by a dict, transform the dict to a sorted list and make a Dataframe for visualization
 
+1. Get degree requirement from minimum qualifications
+  - set a list of degree
+  - init d dict for count
+  - iterate the df column to update the count dict
+  ```python
+  degree_list = ['BA', 'BS', 'Bachelor', 'MBA', 'Master', 'PhD']
+  
+  ```
 
 
 
