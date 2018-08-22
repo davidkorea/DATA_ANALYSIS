@@ -124,3 +124,16 @@ language_df = pd.dateframe(language_requirement, columns=['language', 'count'])
 sns.barplot(x=language_df['language'] , y=language_df['count'])
 ```
 
+# 5. Word cloud
+
+Generate the word cloud of [responsibilities, minimum qualifications, preferred qualifications] for the specific word in job titles.
+
+## 5.1 Code 
+  - search specific word in the Title column
+  - filter the data_df with the criterion above
+  - get the relevant text of the filtered data_df and put them into a list
+  - make a long_text, a very long string by the list above
+  - generate wordcloud
+  ```python
+  
+  ```
