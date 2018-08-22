@@ -63,15 +63,34 @@
 
 # 3. Required minimum degree
 
-Get a specific word this a text, count the frequency by a dict, transform the dict to a sorted list and make a Dataframe for visualization
+Get a specific word this a text, count the frequency by a dict, transform the dict to a sorted list and make a Dataframe for visualization.
+
+> get error code ?
 
 1. Get degree requirement from minimum qualifications
   - set a list of degree
   - init d dict for count
-  - iterate the df column to update the count dict
+  - iterate the df column to serach the degree and update the count dict
   ```python
   degree_list = ['BA', 'BS', 'Bachelor', 'MBA', 'Master', 'PhD']
+  degree_dict = dict( (x,0) for x in degree_list )
+  for degree in degree_list:
+      count = data_df['Minimum Qualicafitions'].str.contains(degree).sum() # sum up a boolean array
+      degree_dict[degree] = count
+  ```
+  - transform dict to a sorted list 
+  - transform sorted list to Dataframe
+  - visualization
+  ```python
+  degree_requirement = sorted(degree_dict.items(), key=item:item[1], reverse=True)
+  degree_df = pd.Dataframe(degree_requirement, columns=['degree', 'count'])
   
+  sns.barplot(x=degree_df.degree, y=degree_df['count']) 
+  # sns must set x and y, no need to set_index
+  # must be degree_df['count'], or else TypeError: float() argument must be a string or a number, not 'method'
+  
+  degree_df.set_index('degree', inplace=True) # if no inplace, it doesn't work
+  degree_df.plot(kind='bar', rot=0)
   ```
 
 
