@@ -15,17 +15,16 @@
 # 1. Country of recuiment
 
   1. get country from location column
-    - vector operations   
+    - vector operations    
+    - visualization
   ```python
   data_df['country'] = data_df['location'].apply(lambda x: x.split(',')[-1])
   data_df['country'] = data_df['country'].apply(lambda y: y.replace(' ', ''))
-  # data_df['country'] = data_df['country'].replace(' ', '') # doesn't work, 
-  ```
-    - visualization
-  ```python
+  # data_df['country'] = data_df['country'].replace(' ', '') # doesn't work
   data_df['country'].value_counts()[:10].plot(kind='bar', rot=45, figsize=(12,8))
-  ```
-  2. **1. Replace in one df column**
+  ```    
+
+  2. **Replace in one df column**
 
   - Only full replace / completely replace
     - ```new_df['country'].replace('Taiwan', 'China', inplace=True) # replace space first then it works```
