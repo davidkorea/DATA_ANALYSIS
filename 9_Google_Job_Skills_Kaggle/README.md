@@ -21,6 +21,17 @@
   data_df['country'] = data_df['country'].apply(lambda y: y.replace(' ', ''))
   # data_df['country'] = data_df['country'].replace(' ', '') # doesn't work, 
   ```
+    - visualization
+  ```python
+  data_df['country'].value_counts()[:10].plot(kind='bar', rot=45, figsize=(12,8))
+  ```
+  2. **1. Replace in one df column**
+
+  - Only full replace / completely replace
+    - ```new_df['country'].replace('Taiwan', 'China', inplace=True) # replace space first then it works```
+    - ```data_df.loc[ data_df['country']=='Taiwan', 'country' ] = 'China' # replace space first then it works```      
+    - ```data_df['country'].apply(lambda x:'China' if x = 'Taiwan' else x) #apply(lambda x:) must be a full if-else pattern```
+
 
 
 
@@ -33,7 +44,7 @@
 **1. Replace in one column**
 
 ```python
-new_df['country'].replace('Taiwan', 'China', inplace=True)
+new_df['country'].replace('Taiwan', 'China', inplace=True) # only full replace / completely replace
 ```
 ```python
 data_df['country'].apply(lambda x:'China' if x = 'Taiwan' else x) # must be a full if...else... pattern
