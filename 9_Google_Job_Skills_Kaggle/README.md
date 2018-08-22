@@ -1,10 +1,16 @@
 # Google Job Skills Kaggle
 
-- work experience of year 
-- required minimum degree 
-- required programming lamguage
-- each position's responsibilities, minimum qualifications, preferred qualifications
-
+- tasks
+  - work experience of year 
+  - required minimum degree 
+  - required programming lamguage
+  - each position's responsibilities, minimum qualifications, preferred qualifications
+- code
+  - data_df[''].apply(lambda x: ...)
+  - content_list = data_df[ data_df['col_1'].str.contains('a') ]['col_2'].tolist()
+  - long_text = ' '.join(content_list)
+  - Wordcloud().generate(long_text)
+  
 **1. Replace in one column**
 
 ```python
