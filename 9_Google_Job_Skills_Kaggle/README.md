@@ -14,7 +14,7 @@
 
 # 1. Country of recuiment
 
-  1. get country from location column
+1. get country from location column
 
   - vector operations    
   - visualization
@@ -27,7 +27,7 @@
   data_df['country'].value_counts()[:10].plot(kind='bar', rot=45, figsize=(12,8))
   ```    
 
-  2. **Replace in one df column** [_Issue_](https://github.com/davidkorea/DATA_ANALYSIS/issues/2)
+2. **Replace in one df column** [_Issue_](https://github.com/davidkorea/DATA_ANALYSIS/issues/2)
 
   - Only full replace / completely replace, remove irrelevant elements first and leave the char we want to replace only
     - ```new_df['country'].replace('Taiwan', 'China', inplace=True)```
@@ -38,23 +38,18 @@
     - ```data_df.loc[ data_df['country'].str.contains('Taiwan'), 'country' ] = 'China'```, replace all contents if the cell contains the char we set.
     - ```data_df['country'] = data_df['country'].apply(lambda x: x.replace('Taiwan', 'China'))```, only replace the chars we set and leave the others as what they are.
 
-
-
-
 # 2. Years of work experience
 
 1. get minimum year 
-**1. Replace in one column**
 
-```python
-new_df['country'].replace('Taiwan', 'China', inplace=True) # only full replace / completely replace
-```
-```python
-data_df['country'].apply(lambda x:'China' if x = 'Taiwan' else x) # must be a full if...else... pattern
-```
-```python
-data_df.loc[ data_df['country']=='Taiwan', 'country' ] = 'China'
-```
+
+
+
+
+
+
+
+
 **2. dict can't tranform to df**
 
 dict -> list -> df
