@@ -23,6 +23,7 @@
   data_df['country'] = data_df['country'].apply(lambda y: y.replace(' ', ''))
   # data_df['country'] = data_df['country'].replace(' ', '') # doesn't work
   # because this is not a full replace, space and string are mixed up together
+  # but when you put it into a apply(lambda x:) it works!!!
   data_df['country'].value_counts()[:10].plot(kind='bar', rot=45, figsize=(12,8))
   ```    
 
@@ -35,7 +36,7 @@
 
   - Replace part of elements in df column
     - ```data_df.loc[ data_df['country'].str.contains('Taiwan'), 'country' ] = 'China'```
-
+    - ```data_df['country'] = data_df['country'].apply(lambda x: x.replace('Taiwan', 'China'))```
 
 
 
