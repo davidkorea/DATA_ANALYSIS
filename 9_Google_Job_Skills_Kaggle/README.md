@@ -1,16 +1,34 @@
 # Google Job Skills Kaggle
 
 - tasks
+  - country of recruiment
   - work experience of year 
   - required minimum degree 
   - required programming lamguage
   - each position's responsibilities, minimum qualifications, preferred qualifications
 - code
-  - ```data_df[''].apply(lambda x: ...)```
+  - ```data_df[''].apply(lambda x: ...)```, only if the vector satisfied the criterion will apply on x, or will be left
   - ```content_list = data_df[ data_df['col_1'].str.contains('a') ]['col_2'].tolist()```
   - ```long_text = ' '.join(content_list)```
   - ```Wordcloud().generate(long_text)```
+
+# 1. Country of recuiment
+
+1. get country from location column
+  - vector operations
+  ```python
+  data_df['country'] = data_df['location'].apply(lambda x: x.split(',')[-1])
+  data_df['country'] = data_df['country'].replace(' ', '')
+  ```
   
+
+
+
+
+
+# 2. Years of work experience
+
+1. get minimum year 
 **1. Replace in one column**
 
 ```python
