@@ -39,11 +39,10 @@
     - ```data_df['country'] = data_df['country'].apply(lambda x: x.replace('Taiwan', 'China'))```, only replace the chars we set and leave the others as what they are.
     - ```data_df['col_1'] = data_df['col_1'].str.replace('.', '')```, # 360.000.000 -> 360000000
     
-    > **_Best_**: ```data_df['col_1'] = data_df['col_1'].str.replace('.', '')```
-    
-      > **_Best_**: ```data_df['col_1'].apply(lambda x: x.replace('char1', 'char2'))```.
-      > Only replace the specific char you want to replace in a text and leave others text there.
-      > Do whatever you want to do
+    > **_Best_**: ```data_df['col_1'] = data_df['col_1'].str.replace('.', '')```    
+    >  > **_Best_**: ```data_df['col_1'].apply(lambda x: x.replace('char1', 'char2'))```.
+    >  > Only replace the specific char you want to replace in a text and leave others text there.
+    >  > Do whatever you want to do
 
 # 2. Years of work experience
 
