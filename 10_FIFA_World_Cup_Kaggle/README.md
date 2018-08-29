@@ -84,3 +84,28 @@ plt.title('Average attendence by year')
 plt.show()
 ```
 > **```.to_frame()``` vs ```.reset_index()```**, 둘 다 return a Dataframe, 하지만 뒷것이 나을듯
+
+# 2. Total goals scored by year
+
+**Steps**
+
+1. use cup_df
+2. sns.scatter(x='Year', y='GoalsScored', s=cup_df['Attendance']*0.0001, c='GoalsScored', cmap='Blues')
+  - s: scatter size
+  - c, cmap: c의 값에 따라, cmap섹상이 변하다 
+  
+**Code**
+```python
+plt.figure(figsize=(14,6))
+plt.scatter(data=cup_df, x='Year', y='GoalsScored', 
+            c='GoalsScored', s=cup_df['Attendance']*0.0001, cmap='Blues',
+            linewidth=1 ,edgecolor='blue')
+plt.colorbar()
+plt.xticks(cup_df['Year'].unique())
+# with no plt.xticks, will generate only 4 ticks [1940,1960,1980,2000] not each year
+plt.yticks(np.arange(60,200,20))
+plt.title('Total goals scored by year',color='b')
+plt.xlabel("year")
+plt.ylabel("total goals scored")
+plt.show()
+```
