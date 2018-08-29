@@ -23,8 +23,15 @@
 
 Code
 ```python
-
+match_df = match_df.dropna()
+match_df['Year'] = match_df['Year'].astype(int)
+match_df['date'] = match_df['Datetime'].str.split('-').str[0]
+match_df['Stadium'] = match_df['Stadium'].str.split().str[0]
+match_df = match_df.replace('Germany FR','Germany')
+match_df = match_df.drop_duplicates(subset='MatchID', keep='first')
 ```
+**Do not use ```inplace=True```, make the code more clearly by data_df = data_df.operations**
+
 ## 0.2 cup_df
 - Germany FR -> Germany
 - attendance: str.replace('.', '')
