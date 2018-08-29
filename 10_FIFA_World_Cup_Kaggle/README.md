@@ -30,19 +30,24 @@ match_df['Stadium'] = match_df['Stadium'].str.split().str[0]
 match_df = match_df.replace('Germany FR','Germany')
 match_df = match_df.drop_duplicates(subset='MatchID', keep='first')
 ```
-> **Do not use ```inplace=True```, make the code more clearly by data_df = data_df.operations**
-> **```data_df['col_1'].str.split('-').str[0]``` better than ```.apply(lambda x:x.split('-')[0]) ```**
+> **1. Do not use ```inplace=True```, make the code more clearly and readable by data_df = data_df.operations**
+> **2. ```data_df['col_1'].str.split('-').str[0]``` better than ```.apply(lambda x:x.split('-')[0]) ```**
+> **data_df.drop_duplicates(subset='col_1', keep='first')**
 
 
 ## 0.2 cup_df
-- Germany FR -> Germany
-- attendance: str.replace('.', '')
-- year; astype(str) #TypeError: sequence item 0: expected str instance, int found
+1. Germany FR -> Germany
+2. attendance: str.replace('.', '')
+3. year: astype(str)
 
+Code
+```python
+cup_df = cup_df.replace('Germany FR','Germany')
+cup_df["Attendance"] = cup_df['Attendance'].str.replace('.','').astype(int)
+cup_df['Year'] = cup_df['Year'].astype(str)
+```
 
-
-
-
-# 1. Total attendence of world cups by year 历届世界杯观众人数
+# 1. Total attendence of world cups by year 
+  历届世界杯观众人数
 
 
