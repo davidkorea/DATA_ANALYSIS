@@ -70,5 +70,12 @@ plt.show()
 ```
 ## 1.2 Average attendence by year
 ```python
+year_attend_mean_df = match_df.groupby('Year')['Attendance'].mean().reset_index()
 
+plt.figure(figsize=(12,4))
+ax = sns.pointplot(year_attend_mean_df['Year'], year_attend_mean_df['Attendance'], color='w')
+ax.set_facecolor('k')
+plt.grid(True, color='grey', alpha=0.3)
+plt.title('Average attendence by year')
+plt.show()
 ```
