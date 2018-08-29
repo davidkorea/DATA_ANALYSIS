@@ -30,7 +30,9 @@ match_df['Stadium'] = match_df['Stadium'].str.split().str[0]
 match_df = match_df.replace('Germany FR','Germany')
 match_df = match_df.drop_duplicates(subset='MatchID', keep='first')
 ```
-**Do not use ```inplace=True```, make the code more clearly by data_df = data_df.operations**
+> **Do not use ```inplace=True```, make the code more clearly by data_df = data_df.operations**
+> **```data_df['col_1'].str.split('-').str[0]``` better than ```.apply(lambda x:x.split('-')[0]) ```**
+
 
 ## 0.2 cup_df
 - Germany FR -> Germany
