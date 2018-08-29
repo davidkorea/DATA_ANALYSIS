@@ -4,7 +4,7 @@
 2. advanced visualization
 
 # 목차
-0.  [Clean data](#01-match_df)
+0. [Clean data](#0-clean_data)
 1. Total attendence of world cups by year
 
 
