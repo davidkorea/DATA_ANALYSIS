@@ -85,8 +85,9 @@ plt.show()
 ```
 > **```.to_frame()``` vs ```.reset_index()```**, 둘 다 return a Dataframe, 하지만 뒷것이 나을듯
 
-# 2. Total goals scored by year
+# 2. Total goals scored
 
+## 2.1 Total goals scored by year
 **Steps**
 
 1. use cup_df
@@ -107,4 +108,12 @@ plt.title('Total goals scored by year',color='b')
 plt.xlabel("year")
 plt.ylabel("total goals scored")
 plt.show()
+```
+## 2.2 Total goals scored by country
+
+**Steps**
+
+**Code**
+```python
+
 ```
