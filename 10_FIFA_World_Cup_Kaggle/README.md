@@ -97,9 +97,8 @@ plt.show()
 **Code**
 ```python
 plt.figure(figsize=(14,6))
-plt.scatter(data=cup_df, x='Year', y='GoalsScored', 
-            c='GoalsScored', s=cup_df['Attendance']*0.0001, cmap='Blues',
-            linewidth=1 ,edgecolor='blue')
+plt.scatter(data=cup_df, x='Year', y='GoalsScored', s=cup_df['Attendance']*0.0001,
+            c='GoalsScored', cmap='Blues', linewidth=1 ,edgecolor='blue')
 plt.colorbar()
 plt.xticks(cup_df['Year'].unique())
 # with no plt.xticks, will generate only 4 ticks [1940,1960,1980,2000] not each year
