@@ -83,3 +83,4 @@ plt.grid(True, color='grey', alpha=0.3)
 plt.title('Average attendence by year')
 plt.show()
 ```
+> **```.to_frame()``` vs ```.reset_index()```**, 둘 다 return a Dataframe, 하지만 뒷것이 나을듯
