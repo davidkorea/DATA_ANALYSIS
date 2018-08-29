@@ -3,7 +3,37 @@
 1. data process and analysis, easy to hard
 2. advanced visualization
 
+목차
+0. Clean data
+1. Total attendence of world cups by year
 
-![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_%20FIFA_World_Cup_Kaggle/README/1.jpg)
 
-![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_%20FIFA_World_Cup_Kaggle/README/2.jpg)
+# 0. Clean data
+## 0.1 match_df
+- dropna
+- year: astype(int)
+- split date: str.split('-').str[0] 
+- stadium: split and use only first word
+- Germany FR -> Germany
+- MatchID: drop_duplicates
+
+확인
+- ```match_df[match_df['Home Team Name'].str.contains('Germany')]```
+- ```match_df[match_df['MatchID']==300186461.0]```
+
+Code
+```python
+
+```
+## 0.2 cup_df
+- Germany FR -> Germany
+- attendance: str.replace('.', '')
+- year; astype(str) #TypeError: sequence item 0: expected str instance, int found
+
+
+
+
+
+# 1. Total attendence of world cups by year 历届世界杯观众人数
+
+
