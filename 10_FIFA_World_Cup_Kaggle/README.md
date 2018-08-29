@@ -10,7 +10,7 @@
 
 # 0. Clean data
 ## 0.1 match_df
-Steps
+**Steps**
 1. dropna
 2. year: astype(int)
 3. split date: str.split('-').str[0] 
@@ -18,11 +18,11 @@ Steps
 5. Germany FR -> Germany
 6. MatchID: drop_duplicates
 
-확인
+**확인**
 1. ```match_df[match_df['Home Team Name'].str.contains('Germany')]```
 2. ```match_df[match_df['MatchID']==300186461.0]```
 
-Code
+**Code**
 ```python
 match_df = match_df.dropna()
 match_df['Year'] = match_df['Year'].astype(int)
@@ -37,12 +37,12 @@ match_df = match_df.drop_duplicates(subset='MatchID', keep='first')
 
 
 ## 0.2 cup_df
-Steps
+**Steps**
 1. Germany FR -> Germany
 2. attendance: str.replace('.', '')
 3. year: astype(str)
 
-Code
+**Code**
 ```python
 cup_df = cup_df.replace('Germany FR','Germany')
 cup_df["Attendance"] = cup_df['Attendance'].str.replace('.','').astype(int)
@@ -51,13 +51,13 @@ cup_df['Year'] = cup_df['Year'].astype(str)
 
 # 1. Attendence of world cups by year 
 ## 1.1 Total attendence of world cups by year
-Steps
+**Steps**
 0. use cups_df['Attendance'] directly
 1. use match_df to get the attendance data
 2. groupby year and attance.sum()
 3. sns.barplot(data=year_attend_df, x='Year', y='Attendance', linewidth=1, edgecolor='K')
 4. sns.pointplot()
-Code
+**Code**
 ```python
 sns.set_style('darkgrid')
 year_attend_df = match_df.groupby('Year')['Attendance'].sum().reset_index()
