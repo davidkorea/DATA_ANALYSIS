@@ -4,12 +4,13 @@
 2. advanced visualization
 
 # 목차
-0. [Clean data](# 0. Clean data)
+0. Clean data
 1. Total attendence of world cups by year
 
 
 # 0. Clean data
 ## 0.1 match_df
+Steps
 1. dropna
 2. year: astype(int)
 3. split date: str.split('-').str[0] 
@@ -36,6 +37,7 @@ match_df = match_df.drop_duplicates(subset='MatchID', keep='first')
 
 
 ## 0.2 cup_df
+Steps
 1. Germany FR -> Germany
 2. attendance: str.replace('.', '')
 3. year: astype(str)
@@ -47,7 +49,26 @@ cup_df["Attendance"] = cup_df['Attendance'].str.replace('.','').astype(int)
 cup_df['Year'] = cup_df['Year'].astype(str)
 ```
 
-# 1. Total attendence of world cups by year 
-  历届世界杯观众人数
+# 1. Attendence of world cups by year 
+## 1.1 Total attendence of world cups by year
+Steps
+0. use cups_df['Attendance'] directly
+1. use match_df to get the attendance data
+2. groupby year and attance.sum()
+3. sns.barplot(data=year_attend_df, x='Year', y='Attendance', linewidth=1, edgecolor='K')
+4. sns.pointplot()
+Code
+```python
+sns.set_style('darkgrid')
+year_attend_df = match_df.groupby('Year')['Attendance'].sum().reset_index()
 
+plt.figure(figsize=(12,4))
+sns.barplot(data=year_attend_df, x='Year', y='Attendance', linewidth=1, edgecolor='K')
+plt.grid(True)
+plt.title('Attendence by year', color='b', fontsize=18)
+plt.show()
+```
+## 1.2 Average attendence by year
+```python
 
+```
