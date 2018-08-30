@@ -5,10 +5,14 @@
 
 # 목차
 0. [Clean data](#0-clean-data)
+
     0.1 [match_df](#01-match_df)
+    
     0.2 [cup_df](#02-cup_df)
 1. [Attendence of world cups by year](#1-attendence-of-world-cups-by-year)
+
     1.1 [Total attendence of world cups by year](#11-total-attendence-of-world-cups-by-year)
+    
     1.2 [Average attendence by year](#12-average-attendence-by-year)
 
 
