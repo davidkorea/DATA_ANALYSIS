@@ -121,7 +121,7 @@ plt.show()
 5. sort values: all_country.sort_values(by='total_goal')
 6. plot: all_country.plot(kind='bar', x='country', y='total_goal'), sns.barplot()
 
-**Code**
+**Code** -> scatter?????? as above 2.1
 ```python
 home_df = match_df.groupby('Home Team Name')['Home Team Goals'].sum().reset_index()
 home_df.columns = ['country', 'home_goals']
