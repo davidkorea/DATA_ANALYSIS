@@ -189,3 +189,26 @@ for i,j in enumerate(' City: '+top_attend_stadium_df['City']):
 plt.grid(True)
 plt.title('Stadiums with highest average attendance')
 ```
+
+# 4. Country got winner most
+
+**Step**
+1. cup_df
+2. counts: cup_df['winner'].value_counts()
+3. winner at year: cup_df.groupby('winner')['year'].apply(' '.join)
+4. merge
+
+**Code**
+```python
+winner_year_count_df = cup_df['Winner'].value_counts().reset_index()
+winner_year_count_df.columns = ['Winner','count']
+winner_year_df = cup_df.groupby('Winner')['Year'].apply(', '.join).reset_index()
+winner_year_merge_df = pd.merge(winner_year_df,winner_year_count_df, on='Winner', how='left')
+winner_year_merge_df.sort_values(by='count', inplace=True, ascending=False)
+
+plt.figure(figsize=(12,8))
+ax = sns.barplot(data=winner_year_merge_df, x='count', y='Winner', linewidth=1, edgecolor='k', palette='jet_r')
+for i,j in enumerate('Years: '+winner_year_merge_df['Year']):
+    ax.text(0.05, i,j, fontsize=14, color='white', weight='bold')
+plt.grid(True)
+```
