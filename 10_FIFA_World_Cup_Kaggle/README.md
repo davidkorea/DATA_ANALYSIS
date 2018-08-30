@@ -143,7 +143,9 @@ top_country_goal_df.head(10).plot(kind='bar', x='country', y='total_goals')
 sns.barplot(x='country', y='total_goals', data=top_country_goal_df)
 ```
 
-# 3. Matches with highest number of attendance
+# 3. Matches, Stadiums with Highest number of attendance, 
+
+## 3.1 Matches with highest number of attendance
 
 **Step**
 1. match_df
@@ -171,4 +173,19 @@ plt.grid(True)
 for i,j in enumerate(text):
     ax.text(x=100,y=i,s=j, fontsize=12, color='w', weight='bold')
     # x - start location at x-axis, y - which bar has this test, s - text
+```
+## 3.2 Stadiums with highest average attendance
+
+**Code**
+```python
+attend_stadium_df = match_df.groupby(['Stadium','City'])['Attendance'].mean().reset_index()
+top_attend_stadium_df = attend_stadium_df.sort_values('Attendance', ascending=False)[:10]
+
+plt.figure(figsize=(12,8))
+ax = sns.barplot(data=top_attend_stadium_df, x='Attendance', y='Stadium_short', 
+                linewidth=1, edgecolor='k', palette='cool')
+for i,j in enumerate(' City: '+top_attend_stadium_df['City']):
+    ax.text(100,i,j, fontsize=14, color='white', weight='bold')
+plt.grid(True)
+plt.title('Stadiums with highest average attendance')
 ```
