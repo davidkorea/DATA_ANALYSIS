@@ -301,7 +301,7 @@ layout = go.Layout(
 fig = go.Figure(data=data, layout=layout)
 py.iplot(fig, filename='pyplot-fifa')
 ```
-# 6. Which teams scored the most goals per cup ? Top5
+# 6. Top5 teams scored the most goals per cup ? 
 
 **Step**
 > 1. ~~cup_df~~
@@ -309,10 +309,12 @@ py.iplot(fig, filename='pyplot-fifa')
 > 3. ~~concat above 3 pd.Series~~~~
 
 1. match_df
-2.
-3.
-4. Series -> Dataframe, reset_index()
-5. sort: soer_values(by=['year', 'count'], ascending=[True,False])
-6. df.group('year').head(5) **_Important_** **_대박_**
+2. x - year, y - stacked top5 country goals, name = country
+3. group year&home_team, count home_goal, group year&away-team, count away_goal. **DO NOT transfrm to Dataframe**
+4. merge above two pd.Series
+5. Series -> Dataframe, reset_index(), set new columns name
+6. df['total_goal'] = df['home_goal'] + df['away_goal']
+7. sort values: sort_values(by=['year','total_goal'], ascending=[Trye, False])
+8. df.gropby('year')['total_goal'].head(5)  **_Important_**
 
 **Code**
