@@ -143,7 +143,7 @@ top_country_goal_df.head(10).plot(kind='bar', x='country', y='total_goals')
 sns.barplot(x='country', y='total_goals', data=top_country_goal_df)
 ```
 
-# 3. Matches, Stadiums with Highest number of attendance, 
+# 3. Matches, Stadiums with Highest number of attendance
 
 ## 3.1 Matches with highest number of attendance
 
@@ -198,6 +198,9 @@ plt.title('Stadiums with highest average attendance')
 
 **Code**
 ```python
+plot_list = cup_df.columns.tolist()[-4:]
+# ['GoalsScored', 'QualifiedTeams', 'MatchesPlayed', 'Attendance']
+
 plt.figure(figsize=(22,16))
 for i,plot in enumerate(plot_list):
     plt.subplot('22{}'.format(i+1))
@@ -207,17 +210,13 @@ for i,plot in enumerate(plot_list):
 plt.subplots_adjust(wspace = 0.2, hspace = 0.4,top = 0.9)
 plt.show()
 ```
-
-
-
-
 # 5. Which countries had won the cup most? 
 
 ## 5.1 Which country got winner most? 
 **Step**
 1. cup_df
 2. counts: cup_df['winner'].value_counts()
-3. winner at year: cup_df.groupby('winner')['year'].apply(' '.join)
+3. winner at year: cup_df.groupby('winner')['year'].apply(' '.join), write on bar
 4. merge
 
 **Code**
@@ -296,7 +295,7 @@ for prize in prize_list:
 layout = go.Layout(
     barmode = "stack", 
     title = "Number of podium by country",
-#     showlegend = False
+    showlegend = False
 )
 
 fig = go.Figure(data=data, layout=layout)
