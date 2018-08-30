@@ -170,4 +170,5 @@ plt.title('Matches with highest number of attendace')
 plt.grid(True)
 for i,j in enumerate(text):
     ax.text(x=100,y=i,s=j, fontsize=12, color='w', weight='bold')
+    # x - start location at x-axis, y - which bar has this test, s - text
 ```
