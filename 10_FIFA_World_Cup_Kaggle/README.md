@@ -154,12 +154,12 @@ sns.barplot(x='country', y='total_goals', data=top_country_goal_df)
 **Code**
 ```python
 top_attend_match_df = match_df.sort_values(by='Attendance',ascending=False)[:10]
-top_attend_match_df['vs'] = top_attend_match_df['Home Team Name'] + ' .VS. ' + top_attend_match_df['Away Team Name']
-# top_attend_match_df['vs'] = top_attend_match_df['Home Team Name'].str.cat(top_attend_match_df['Away Team Name'], sep=' .vs. ')
+top_attend_match_df['vs'] = top_attend_match_df['Home Team Name']+ ' .VS. ' +top_attend_match_df['Away Team Name']
+# top_attend_match_df['Home Team Name'].str.cat(top_attend_match_df['Away Team Name'], sep=' .vs. ')
 top_attend_match_df['date'] = top_attend_match_df['Datetime'].str.split('-').str[0]
 ```
 ```python
-text = ' Stadium: ' + top_attend_match_df['Stadium'].str.split('-').str[0] + ', Date: ' + top_attend_match_df['date']
+text = 'Stadium:'+top_attend_match_df['Stadium'].str.split('-').str[0]+ ', Date:' +top_attend_match_df['date']
 
 plt.figure(figsize=(10,8))
 ax = sns.barplot(data=top_attend_match_df, x='Attendance', y='vs',palette='gist_ncar', 
