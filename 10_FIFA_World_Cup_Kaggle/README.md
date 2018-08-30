@@ -353,5 +353,26 @@ fig = go.Figure(data=data, layout=layout)
 py.iplot(fig, filename='pyplot-fifa')
 ```
 
+# 7. Interactions between teams
 
+```python
+import networkx as nx 
+
+def interactions(year,color):    
+    df  =  matches[matches["Year"] == year][["Home Team Name","Away Team Name"]]
+    G   = nx.from_pandas_dataframe(df,"Home Team Name","Away Team Name")    
+    plt.figure(figsize=(10,9))    
+    nx.draw_kamada_kawai(G,with_labels = True,
+                         node_size  = 2500,
+                         node_color = color,
+                         node_shape = "h", # node_shape = h-6 edge, s-4 edge
+                         edgecolor  = "k",
+                         linewidths  = 5 ,
+                         font_size  = 13 ,
+                         alpha=.8)                        
+    plt.title("Interaction between teams :" + str(year) , fontsize =13 , color = "b")
+    
+interactions(2014,"r")
+interactions(1994,"royalblue")
+```
 
