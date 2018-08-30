@@ -4,12 +4,12 @@
 
 # Index
 
-0. [Clean data](#0-clean-data)
+0. [Clean data](#0-clean-data--)
 
     0.1 [match_df](#01-match_df)
     
     0.2 [cup_df](#02-cup_df)
-1. [Attendence of world cups by year](#1-attendence-of-world-cups-by-year)
+1. [Attendence of world cups by year](#1-attendence-of-world-cups-by-year--)
 
     1.1 [Total attendence of world cups by year](#11-total-attendence-of-world-cups-by-year)
     
@@ -80,7 +80,7 @@ cup_df["Attendance"] = cup_df['Attendance'].str.replace('.','').astype(int)
 cup_df['Year'] = cup_df['Year'].astype(str)
 ```
 
-# 1. Attendence of world cups by year 
+# 1. Attendence of world cups by year  [![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/link32.png)](#index)
 ## 1.1 Total attendence of world cups by year
 
 **Steps**
@@ -116,7 +116,7 @@ plt.show()
 ```
 > **```.to_frame()``` vs ```.reset_index()```**, 둘 다 return a Dataframe, 하지만 뒷것이 나을듯
 
-# 2. Total goals scored -> per country per cup [☆☆☆☆☆]
+# 2. Total goals scored -> per country per cup [☆☆☆☆☆]  [![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/link32.png)](#index)
 
 ## 2.1 Total goals scored by year
 **Steps**
@@ -174,7 +174,7 @@ top_country_goal_df.head(10).plot(kind='bar', x='country', y='total_goals')
 sns.barplot(x='country', y='total_goals', data=top_country_goal_df)
 ```
 
-# 3. Matches, Stadiums with Highest number of attendance
+# 3. Matches, Stadiums with Highest number of attendance  [![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/link32.png)](#index)
 
 ## 3.1 Matches with highest number of attendance
 
@@ -221,7 +221,7 @@ plt.grid(True)
 plt.title('Stadiums with highest average attendance')
 ```
 
-# 4. Figures distribution by year/cup
+# 4. Figures distribution by year/cup  [![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/link32.png)](#index)
 
 **Step**
 1. cup_df
@@ -241,7 +241,7 @@ for i,plot in enumerate(plot_list):
 plt.subplots_adjust(wspace = 0.2, hspace = 0.4,top = 0.9)
 plt.show()
 ```
-# 5. Which countries had won the cup most? 
+# 5. Which countries had won the cup most?  [![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/link32.png)](#index) 
 
 ## 5.1 Which country got winner most? 
 **Step**
@@ -332,7 +332,7 @@ layout = go.Layout(
 fig = go.Figure(data=data, layout=layout)
 py.iplot(fig, filename='pyplot-fifa')
 ```
-# 6. Top5 teams scored the most goals per cup ? 
+# 6. Top5 teams scored the most goals per cup?  [![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/link32.png)](#index)
 
 **Step**
 > 1. ~~cup_df~~
@@ -384,7 +384,7 @@ fig = go.Figure(data=data, layout=layout)
 py.iplot(fig, filename='pyplot-fifa')
 ```
 
-# 7. Interactions between teams
+# 7. Interactions between teams  [![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/link32.png)](#index)
 
 ```python
 import networkx as nx 
