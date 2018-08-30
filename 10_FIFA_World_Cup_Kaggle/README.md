@@ -92,8 +92,8 @@ plt.show()
 
 1. use cup_df
 2. sns.scatter(x='Year', y='GoalsScored', s=cup_df['Attendance']*0.0001, c='GoalsScored', cmap='Blues')
-  - s: scatter size
-  - c, cmap: c의 값에 따라, cmap섹상이 변하다 
+    - s: scatter size
+    - c, cmap: c의 값에 따라, cmap섹상이 변하다 
   
 **Code**
 ```python
@@ -113,7 +113,21 @@ plt.show()
 
 **Steps**
 
+1. match_df
+2. home_country: match_df.groupby('home name')['home goal'].sum().reset_index(), rename columns=['country','home_goal']
+2. away_country: match_df.groupby('away name')['away goal'].sum().reset_index(), rename columns=['country','away_goal']
+3. merge all: all_country = pd.merge(home_country,away_country,oh='country',how='outer')
+4. add total: all_country['total_goal'] = all_country['home_goal'] + all_country['away_goal']
+5. sort values: all_country.sort_values(by='total_goal')
+6. plot: all_country.plot(kind='bar', x='country', y='total_goal'), sns.barplot()
+
 **Code**
 ```python
-
+home_df = match_df.groupby('Home Team Name')['Home Team Goals'].sum().reset_index()
+home_df.columns = ['country', 'home_goals']
+away_df = match_df.groupby('Away Team Name')['Away Team Goals'].sum().reset_index()
+away_df.columns = ['country', 'away_goals']
+country_goal_df = pd.merge(home_df, away_df, on='country', how='inner')
+country_goal_df['total_goals'] = country_goal_df['home_goals']+country_goal_df['away_goals']
+top_country_goal_df = country_goal_df.sort_values(by='total_goals',ascending=False)[:10]
 ```
