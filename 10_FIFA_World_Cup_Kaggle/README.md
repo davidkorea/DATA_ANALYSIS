@@ -131,3 +131,14 @@ country_goal_df = pd.merge(home_df, away_df, on='country', how='inner')
 country_goal_df['total_goals'] = country_goal_df['home_goals']+country_goal_df['away_goals']
 top_country_goal_df = country_goal_df.sort_values(by='total_goals',ascending=False)[:10]
 ```
+```python
+# plot hone,away goal stacked bar
+top_country_goal_df.head(10).plot(kind='bar', x='country', y=['home_goals','away_goals'], stacked=True)
+# select sepcific columns to plot, multi-y
+# ONLY this format(data_df.plot(kind='bar', ... )) can use multi-y 
+```
+```python
+# plot total_goal
+top_country_goal_df.head(10).plot(kind='bar', x='country', y='total_goals')
+sns.barplot(x='country', y='total_goals', data=top_country_goal_df)
+```
