@@ -190,9 +190,30 @@ plt.grid(True)
 plt.title('Stadiums with highest average attendance')
 ```
 
-# 4. Which Country got winner most & figures distribution by year/cup
+# 4. Figures distribution by year/cup
 
-## 4.1 Which country got winner most? sorted
+**Step**
+1. cup_df
+2. make subplots for the specific figures
+
+**Code**
+```python
+plt.figure(figsize=(22,16))
+for i,plot in enumerate(plot_list):
+    plt.subplot('22{}'.format(i+1))
+    ax = sns.barplot(data=cup_df,x='Year',y=plot, palette='Blues')
+    ax.set_title('{} per cup'.format(plot),fontsize=16)
+# can only show the last plot????? NO!!! data_df.plot() cannot be used, sns.barplot() ok!
+plt.subplots_adjust(wspace = 0.2, hspace = 0.4,top = 0.9)
+plt.show()
+```
+
+
+
+
+# 5. Which countries had won the cup most? 
+
+## 5.1 Which country got winner most? 
 **Step**
 1. cup_df
 2. counts: cup_df['winner'].value_counts()
@@ -213,26 +234,8 @@ for i,j in enumerate('Years: '+winner_year_merge_df['Year']):
     ax.text(0.05, i,j, fontsize=14, color='white', weight='bold')
 plt.grid(True)
 ```
-## 4.2 Attendance, number of teams, goals and matchs per cup, distribution-unsorted
 
-**Step**
-1. cup_df
-2. make subplots for the specific figures
-
-**Code**
-```python
-plt.figure(figsize=(22,16))
-for i,plot in enumerate(plot_list):
-    plt.subplot('22{}'.format(i+1))
-    ax = sns.barplot(data=cup_df,x='Year',y=plot, palette='Blues')
-    ax.set_title('{} per cup'.format(plot),fontsize=16)
-# can only show the last plot????? NO!!! data_df.plot() cannot be used, sns.barplot() ok!
-plt.subplots_adjust(wspace = 0.2, hspace = 0.4,top = 0.9)
-plt.show()
-```
-
-# 5. Which countries had won the cup most? 1st,2nd,3rd
-
+## 5.2 Which countries had won the cup most? 1st,2nd,3rd
 **Step**
 1. cup_df
 2. winner: cup_df['winner'].value_counts()
@@ -259,6 +262,7 @@ all_df = all_df.sort_values(by=['Winner_count','Runners-Up_count','Third_count']
 # can not write text on bar plot, year_str doesn't make sense
 ```
 ```python
+# Genernal plot
 all_df.plot(kind='bar',x='country',y=['Winner_count','Runners-Up_count','Third_count'],
             figsize=(18,6),color =['gold','silver','brown'],
            linewidth=0.7, edgecolor='w',fontsize=15,width=0.8, align='center')
@@ -270,6 +274,7 @@ plt.title('Number of podium by country')
 ```
 
 ```python
+# Advanced plot
 import plotly.offline as py
 py.init_notebook_mode(connected=True)
 import plotly.graph_objs as go
