@@ -311,7 +311,7 @@ py.iplot(fig, filename='pyplot-fifa')
 1. match_df
 2. x - year, y - stacked top5 country goals, name = country
 3. group year&home_team, count home_goal, group year&away-team, count away_goal. **DO NOT transfrm to Dataframe**
-4. merge above two pd.Series
+4. ~~merge above two pd.Series~~ pd.Series cannot be merged, use pd.concat
 5. Series -> Dataframe, reset_index(), set new columns name
 6. df['total_goal'] = df['home_goal'] + df['away_goal']
 7. sort values: sort_values(by=['year','total_goal'], ascending=[Trye, False])
