@@ -318,3 +318,40 @@ py.iplot(fig, filename='pyplot-fifa')
 8. ~~df.gropby('year')['total_goal'].head(5)~~  **df.gropby('year').head(5)**， **_Most Important_**
 
 **Code**
+```python
+home_cup_goal = match_df.groupby(['Year','Home Team Name'])['Home Team Goals'].sum()
+away_cup_goal = match_df.groupby(['Year', 'Away Team Name'])['Away Team Goals'].sum()
+country_cup_goal_df = pd.concat([home_cup_goal, away_cup_goal],axis=1)
+country_cup_goal_df = country_cup_goal_df.reset_index()
+country_cup_goal_df.columns = ['year','country','home_goal','away_goal']
+country_cup_goal_df['total_goal'] = country_cup_goal_df['home_goal'] + country_cup_goal_df['away_goal']
+
+new_df = country_cup_goal_df.copy()
+new_df = new_df.sort_values(by=['year','total_goal'], ascending=[True,False])
+new_df = new_df.groupby('year').head(5)
+```
+```python
+# Advanced plot
+country_list = new_df['country'].value_counts().index.tolist()
+data = []
+for country in country_list:
+    year = new_df[new_df['country']==country]['year']
+    goal = new_df[new_df['country']==country]['total_goal']
+    data.append(
+        go.Bar(
+            x=year,
+            y=goal,
+            name=country
+        )
+    )
+layout = go.Layout(
+    barmode = "stack", 
+    title = "Top 5 teams which scored the most goals",
+    showlegend = False
+)    
+fig = go.Figure(data=data, layout=layout)
+py.iplot(fig, filename='pyplot-fifa')
+```
+
+
+
