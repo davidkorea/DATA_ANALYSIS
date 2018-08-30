@@ -14,7 +14,29 @@
     1.1 [Total attendence of world cups by year](#11-total-attendence-of-world-cups-by-year)
     
     1.2 [Average attendence by year](#12-average-attendence-by-year)
+2. [Total goals scored](#2-total-goals-scored---per-country-per-cup-)
 
+    2.1 [Total goals scored by year](#21-total-goals-scored-by-year)
+    
+    2.2 [Total goals scored by country](#22-total-goals-scored-by-country)
+
+3. [Matches, Stadiums with Highest number of attendance](#3-matches-stadiums-with-highest-number-of-attendance)
+
+    3.1 [Matches with highest number of attendance](#31-matches-with-highest-number-of-attendance)
+    
+    3.2 [Stadiums with highest average attendance](#32-stadiums-with-highest-average-attendance)
+    
+4. [Figures distribution by year/cup](#4-figures-distribution-by-yearcup)
+
+5. [Which countries had won the cup most?](#5-which-countries-had-won-the-cup-most)
+
+    5.1 [Which country got winner most?](#51-which-country-got-winner-most)
+    
+    5.2 [Which countries had won the cup most? 1st,2nd,3rd](#52-which-countries-had-won-the-cup-most-1st2nd3rd)
+
+6. [Top5 teams scored the most goals per cup ?](#6-top5-teams-scored-the-most-goals-per-cup-)
+
+7. [Interactions between teams](#7-interactions-between-teams)
 
 # 0. Clean data
 ## 0.1 match_df
