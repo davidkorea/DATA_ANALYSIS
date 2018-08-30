@@ -142,3 +142,32 @@ top_country_goal_df.head(10).plot(kind='bar', x='country', y=['home_goals','away
 top_country_goal_df.head(10).plot(kind='bar', x='country', y='total_goals')
 sns.barplot(x='country', y='total_goals', data=top_country_goal_df)
 ```
+
+# 3. Matches with highest number of attendance
+
+**Step**
+1. match_df
+2. match name:create team1 vs team2 as the match name, two ways
+3. show text on bar: date and stadium of this match
+4. sort values: sort_values(by='Attendance'), top10
+
+**Code**
+```python
+top_attend_match_df = match_df.sort_values(by='Attendance',ascending=False)[:10]
+top_attend_match_df['vs'] = top_attend_match_df['Home Team Name'] + ' .VS. ' + top_attend_match_df['Away Team Name']
+# top_attend_match_df['vs'] = top_attend_match_df['Home Team Name'].str.cat(top_attend_match_df['Away Team Name'], sep=' .vs. ')
+top_attend_match_df['date'] = top_attend_match_df['Datetime'].str.split('-').str[0]
+```
+```python
+text = ' Stadium: ' + top_attend_match_df['Stadium'].str.split('-').str[0] + ', Date: ' + top_attend_match_df['date']
+
+plt.figure(figsize=(10,8))
+ax = sns.barplot(data=top_attend_match_df, x='Attendance', y='vs',palette='gist_ncar', 
+            linewidth=1, edgecolor='k')
+plt.ylabel('Match Teams')
+plt.xlabel('Attendance')
+plt.title('Matches with highest number of attendace')
+plt.grid(True)
+for i,j in enumerate(text):
+    ax.text(x=100,y=i,s=j, fontsize=12, color='w', weight='bold')
+```
