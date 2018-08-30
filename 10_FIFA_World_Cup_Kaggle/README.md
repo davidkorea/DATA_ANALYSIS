@@ -301,4 +301,14 @@ layout = go.Layout(
 fig = go.Figure(data=data, layout=layout)
 py.iplot(fig, filename='pyplot-fifa')
 ```
+# 6. Which teams scored the most goals per cup ? Top5
 
+**Step**
+1. cup_df
+2. groupby winner, runnerup, third, and sum year.  **DO NOT transfrm to Dataframe**
+3. concat above 3 pd.Series
+4. Series -> Dataframe, reset_index()
+5. sort: soer_values(by=['year', 'count'], ascending=[True,False])
+6. df.group('year').head(5) **_Important_** **_대박_**
+
+**Code**
