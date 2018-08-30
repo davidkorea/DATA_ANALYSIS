@@ -315,6 +315,6 @@ py.iplot(fig, filename='pyplot-fifa')
 5. Series -> Dataframe, reset_index(), set new columns name
 6. df['total_goal'] = df['home_goal'] + df['away_goal']
 7. sort values: sort_values(by=['year','total_goal'], ascending=[Trye, False])
-8. ~~df.gropby('year')['total_goal'].head(5)~~  df.gropby('year').head(5) **_Important_**
+8. ~~df.gropby('year')['total_goal'].head(5)~~  **df.gropby('year').head(5)**， **_Most Important_**
 
 **Code**
