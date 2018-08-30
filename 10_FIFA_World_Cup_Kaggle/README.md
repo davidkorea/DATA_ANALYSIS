@@ -304,9 +304,11 @@ py.iplot(fig, filename='pyplot-fifa')
 # 6. Which teams scored the most goals per cup ? Top5
 
 **Step**
-1. ~~cup_df~~
-2. ~~groupby winner, runnerup, third, and sum year.~~  **DO NOT transfrm to Dataframe**
-3. ~~concat above 3 pd.Series~~~~
+~~1. cup_df~~
+
+~~2. groupby winner, runnerup, third, and sum year.~~  **DO NOT transfrm to Dataframe**
+
+~~3. concat above 3 pd.Series~~~~
 
 1. match_df
 2.
