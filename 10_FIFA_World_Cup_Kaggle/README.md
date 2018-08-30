@@ -212,3 +212,32 @@ for i,j in enumerate('Years: '+winner_year_merge_df['Year']):
     ax.text(0.05, i,j, fontsize=14, color='white', weight='bold')
 plt.grid(True)
 ```
+# 5. Which countries had won the cup most? 1st,2nd,3rd
+
+**Step**
+1. cup_df
+2. winner: cup_df['winner'].value_counts()
+3. runnerup: cup_df['runnerup'].value_counts()
+3. third: cup_df['third'].value_counts()
+4. merge
+
+**Code**
+```python
+prize_list = ['Winner','Runners-Up','Third']
+prize_df_list = []
+for prize in prize_list:
+    prize_count = cup_df[prize].value_counts().reset_index()
+    prize_count.columns = ['country','{}_count'.format(prize)]
+    prize_year = cup_df.groupby(prize)['Year'].apply(' '.join).reset_index()
+    prize_year.columns = ['country', '{}_year_str'.format(prize)]
+    prize_df = pd.merge(prize_year,prize_count,on='country')
+    prize_df_list.append(prize_df)
+# all_df = pd.merge(prize_df_list,on='country',how='outer')
+# TypeError: merge() missing 1 required positional argument: 'right'
+
+all_df = prize_df_list[0].merge(prize_df_list[1],on='country',how='outer').merge(prize_df_list[2],on='country',how='outer')
+all_df = all_df.sort_values(by=['Winner_count','Runners-Up_count','Third_count'], ascending=False)
+# can not write text on bar plot, year_str doesn't make sense
+```
+
+
