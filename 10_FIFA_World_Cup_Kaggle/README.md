@@ -3,7 +3,15 @@
 1. data process and analysis, easy to hard
 2. advanced visualization
 
-# 목차 
+# Index
+:book:
+:notebook_with_decorative_cover:
+:ledger:
+:point_up:
+:balloon:
+:small_red_triangle:
+:back:
+:arrow_heading_up:  
 
 0. [Clean data](#0-clean-data)
 
@@ -39,7 +47,7 @@
 
 7. [Interactions between teams](#7-interactions-between-teams)
 
-# 0. Clean data
+# 0. Clean data [:page_facing_up:](#-index)
 ## 0.1 match_df
 **Steps**
 1. dropna
