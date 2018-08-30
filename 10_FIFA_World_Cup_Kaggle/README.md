@@ -239,5 +239,42 @@ all_df = prize_df_list[0].merge(prize_df_list[1],on='country',how='outer').merge
 all_df = all_df.sort_values(by=['Winner_count','Runners-Up_count','Third_count'], ascending=False)
 # can not write text on bar plot, year_str doesn't make sense
 ```
+```python
+all_df.plot(kind='bar',x='country',y=['Winner_count','Runners-Up_count','Third_count'],figsize=(18,6),color =['gold','silver','brown'],
+           linewidth=0.7, edgecolor='w',fontsize=15,width=0.8, align='center')
+# width: bar/bin width, color=['red','blue','#d88c03']
+plt.xlabel('Countries')
+plt.ylabel('Number of podium')
+plt.title('Number of podium by country')
+# can not write text on!!!!!
+```
 
+```python
+import plotly.offline as py
+py.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+import plotly.tools as tls
+
+data= []
+# each x:country has the ammount of y:prize divided by name/type:prize, easy to understand to see the data
+for prize in prize_list:
+    country = all_df['country']
+    count = all_df['{}_count'.format(prize)]
+    data.append(
+        go.Bar(
+            x=country,
+            y=count,
+            name = prize,
+        )
+    )
+
+layout = go.Layout(
+    barmode = "stack", 
+    title = "Number of podium by country",
+#     showlegend = False
+)
+
+fig = go.Figure(data=data, layout=layout)
+py.iplot(fig, filename='pyplot-fifa')
+```
 
