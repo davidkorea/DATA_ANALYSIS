@@ -240,7 +240,8 @@ all_df = all_df.sort_values(by=['Winner_count','Runners-Up_count','Third_count']
 # can not write text on bar plot, year_str doesn't make sense
 ```
 ```python
-all_df.plot(kind='bar',x='country',y=['Winner_count','Runners-Up_count','Third_count'],figsize=(18,6),color =['gold','silver','brown'],
+all_df.plot(kind='bar',x='country',y=['Winner_count','Runners-Up_count','Third_count'],
+            figsize=(18,6),color =['gold','silver','brown'],
            linewidth=0.7, edgecolor='w',fontsize=15,width=0.8, align='center')
 # width: bar/bin width, color=['red','blue','#d88c03']
 plt.xlabel('Countries')
