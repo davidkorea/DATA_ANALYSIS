@@ -48,7 +48,7 @@
 7. [Interactions between teams](#7-interactions-between-teams)
 
 # 0. Clean data
-[:page_facing_up:](#-index)
+[:page_facing_up:](#index)
 ## 0.1 match_df
 **Steps**
 1. dropna
