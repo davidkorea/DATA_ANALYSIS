@@ -38,7 +38,8 @@
 
 7. [Interactions between teams](#7-interactions-between-teams)
 
-# 0. Clean data[![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/category.png)](#index)
+# 0. Clean data  [![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/link16.png)](#index)
+
 ## 0.1 match_df
 **Steps**
 1. dropna
