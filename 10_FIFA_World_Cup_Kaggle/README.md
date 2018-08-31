@@ -332,7 +332,7 @@ layout = go.Layout(
 fig = go.Figure(data=data, layout=layout)
 py.iplot(fig, filename='pyplot-fifa')
 ```
-# 6. Top5 teams scored the most goals per cup?  [![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/link32.png)](#index)
+# 6. Top5 teams scored the most goals per cup  [![](https://github.com/davidkorea/DATA_ANALYSIS/blob/master/10_FIFA_World_Cup_Kaggle/README/link32.png)](#index)
 
 **Step**
 > 1. ~~cup_df~~
