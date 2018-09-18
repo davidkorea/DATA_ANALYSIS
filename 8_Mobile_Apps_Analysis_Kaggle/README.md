@@ -11,7 +11,7 @@
     - ```sns.boxplot()```,  默认水平与x轴，需要手动指定y画出垂直盒型图
 3.  大部分情况下，需要找到数据划分区间后，使用```plt.hist()```, ```sns.distplot()```查看柱形图分布.
     - ```plt.hist(normal_df['price'], bins=10)```
-    - ```sns.distplot(normal_df['price'], bins=10, kde=False, rug=True), kde密度函数， rug数值点小竖线```
+    - ```sns.distplot(normal_df['price'], bins=10, kde=False, rug=True)```, kde密度函数， rug数值点小竖线
 4. 若各项取值重复性高，如app一般定价为0.99，1.99，2.99，9.99等，可使用
     - ```data_df['price'].value_counts().plot(kind='bar')```
     - ```sns.countplot(data_df['price'])```
