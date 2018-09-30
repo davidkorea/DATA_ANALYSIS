@@ -8,7 +8,7 @@
     - 大体查看分布，找出异常值outliers，离群值，去除后根据有效信息画出分布图
 2. 使用盒型图查看大体分布，以便找出outliers。
     - ```plt.boxplot()```, 有且仅有垂直方向
-    - ```sns.boxplot()```,  默认水平与x轴，需要手动指定y画出垂直盒型图
+    - ```sns.boxplot()```,  默认水平于x轴，需要手动指定y画出垂直盒型图
 3.  大部分情况下，需要找到数据划分区间后，使用```plt.hist()```, ```sns.distplot()```查看柱形图分布.
     - ```plt.hist(normal_df['price'], bins=10)```
     - ```sns.distplot(normal_df['price'], bins=10, kde=False, rug=True)```, kde密度函数， rug数值点小竖线
